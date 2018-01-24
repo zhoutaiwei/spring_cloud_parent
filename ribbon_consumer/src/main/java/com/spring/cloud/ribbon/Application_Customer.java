@@ -10,16 +10,17 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class Application_Customer  {
+public class Application_Customer {
 
-	   public static void main(String[] args) {
-	        SpringApplication.run(Application_Customer.class, args);
-	    }
+    @Bean
+    @LoadBalanced
+//表明这个restRemplate开启负载均衡的功能
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
-	    @Bean
-	    @LoadBalanced//表明这个restRemplate开启负载均衡的功能
-	    RestTemplate restTemplate() {
-	        return new RestTemplate();
-	    }
+    public static void main(String[] args) {
+        SpringApplication.run(Application_Customer.class, args);
 
+    }
 }

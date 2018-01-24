@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring_Cloud.iml" filepath="$PROJECT_DIR$/.idea/Spring_Cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka_client/eureka_client.iml" filepath="$PROJECT_DIR$/eureka_client/eureka_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbon_consumer/ribbon_consumer.iml" filepath="$PROJECT_DIR$/ribbon_consumer/ribbon_consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_cloud_parent/spring_cloud_parent.iml" filepath="$PROJECT_DIR$/spring_cloud_parent/spring_cloud_parent.iml" />
     </modules>
   </component>

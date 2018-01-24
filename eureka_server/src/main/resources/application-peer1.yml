@@ -8,5 +8,5 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://peer2:1112/eureka/
+      defaultZone: http://127.0.0.1:1112/eureka/
    #   defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

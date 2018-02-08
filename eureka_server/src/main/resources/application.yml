@@ -1,5 +1,6 @@
 server:
-  port: ${random.int[1000,9999]}
+ # port: ${random.int[1000,9999]}
+ port: 1111
 eureka:
   instance:
     hostname: localhost
@@ -9,7 +10,7 @@ eureka:
     #定义服务时效时间，超时就会 被剔除
     lease-expiration-duration-in-seconds: 90
     #利用应用名随机数的方式来区分不同的实例，从而实现在同一主机上，不指定端口就能轻松启动多个实例
-    instance-id: ${spring.application.name}:${random.int}
+  #  instance-id: ${spring.application.name}:${random.int}
     status-page-url-path: ${management.context-path}/info
     health-check-url-path: ${management.context-path}/health
   client:

@@ -1,17 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea
-*.iml
+/*.iml
+/*/*.iml
 out
-gen### Java template
-*.class
-*.log
-*.ctxt
-.mtj.tmp/
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
-hs_err_pid*
-.idea
+gen
+*.patch
+/.idea/
+Spring_Cloud
+.metadata/
+/target/

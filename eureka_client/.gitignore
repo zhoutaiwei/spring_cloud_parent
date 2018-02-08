@@ -1,5 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea
-*.iml
+/*.iml
+/*/*.iml
 out
 gen
+*.patch
+/*/.idea/
+/.idea/
+Spring_Cloud
+.metadata/
+

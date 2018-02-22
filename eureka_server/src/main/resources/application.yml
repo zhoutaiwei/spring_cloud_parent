@@ -1,10 +1,12 @@
 server:
  # port: ${random.int[1000,9999]}
  port: 1111
+management:
+  context-path: /hello
 eureka:
   instance:
     hostname: localhost
-
+#################################################
     #定义服务续约任务的调用间隔时间,客户端向服务端发送心跳的时间间隔
     lease-renewal-interval-in-seconds: 30
     #定义服务时效时间，超时就会 被剔除
@@ -19,10 +21,9 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-  #关闭保护机制，确保注册中心可以将不可用的实例正确剔除
-    enable-self-preservation: false
-management:
-  context-path: /hello
+  #关闭保护机制，确保注册中心可以将不可用的实例正确剔除(false 为关闭)
+    enable-self-preservation: true
+##################ribbon重试配置###############################
 hello-service:
   ribbon:
     ConnectTimeout: 250 #请求连接的超时时间
@@ -36,7 +37,9 @@ spring:
     loadbalancer:
       retry:
         enabled: true
-##断路器的超时时间需要大于Ribbon的超时时间，不然不会触发重试
+#########################################################
+#######################断路器配置##################################
+#断路器的超时时间需要大于Ribbon的超时时间，不然不会触发重试
 hystrix:
   command:
     default:
@@ -44,3 +47,4 @@ hystrix:
       isolation:
         thread:
           timeoutInMilliseconds: 10000
+#########################################################

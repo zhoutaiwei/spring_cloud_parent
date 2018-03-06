@@ -15,12 +15,10 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 @RestController
 @EnableHystrix
-@EnableHystrixDashboard
 public class CustomerApplication {
 
     @Bean
-    @LoadBalanced
-//表明这个restRemplate开启负载均衡的功能
+    @LoadBalanced    //表明这个restRemplate开启负载均衡的功能
     RestTemplate restTemplate() {
         return new RestTemplate();
     }

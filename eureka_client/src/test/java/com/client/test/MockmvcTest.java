@@ -1,3 +1,4 @@
+/*
 package com.client.test;
 
 import com.spring.cloud.eureka.client.Application;
@@ -23,6 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 @RunWith(SpringJUnit4ClassRunner.class)
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,classes = Application.class)
 public class MockmvcTest {
         private MockMvc mockMvc;
@@ -41,3 +43,5 @@ public class MockmvcTest {
 
 
 }//{"a":"[{"b":"hello"},{"c":"hi"},{"d":"think"}]"}
+*/
+

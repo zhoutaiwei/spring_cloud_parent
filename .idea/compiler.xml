@@ -8,16 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka_client" />
         <module name="eureka_server" />
+        <module name="hystrix-dashboard" />
         <module name="ribbon-consumer" />
         <module name="ribbon_consumer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="eureka_client" target="1.8" />
-      <module name="eureka_server" target="1.8" />
+      <module name="eureka_client" target="1.5" />
+      <module name="eureka_server" target="1.5" />
+      <module name="hystrix-dashboard" target="1.6" />
       <module name="ribbon-consumer" target="1.8" />
-      <module name="ribbon_consumer" target="1.8" />
-      <module name="spring_cloud_parent" target="1.8" />
+      <module name="ribbon_consumer" target="1.5" />
+      <module name="spring_cloud_parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,7 +1,6 @@
 package com.spring.cloud.eureka.client.controller;
 
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,14 @@ public class HelloController {
     public String getJSON() {
         //  return "{\"a\":[{\\\"name\\\":\\\"jobs\\\"}, {\\\"name\\\":\\\"bill\\\"},{\\\"product\\\":\\\"war3\\\"}]}"
          ServiceInstance instance=client.getLocalServiceInstance();
+<<<<<<< HEAD
          //让线程等待几秒钟
         int time=new Random().nextInt(3000);
         logger.info("等待时间："+time);
+=======
+        int time=new Random().nextInt(3000);
+        logger.info("时间:"+time);
+>>>>>>> 1a9f4b7ee2f8a5a2209a3e2d2130e5a724d3ede3
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {

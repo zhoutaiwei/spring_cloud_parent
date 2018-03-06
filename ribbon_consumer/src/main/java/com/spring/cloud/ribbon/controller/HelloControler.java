@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.reflect.Method;
-
 @RestController
 public class HelloControler {
     @Bean
@@ -24,6 +22,8 @@ public class HelloControler {
 
     @RequestMapping(value = "/hello-consumer" , method = RequestMethod.GET)
     public String hi(@RequestParam String name) {
-        return helloService.hiService(name);
+        String result=helloService.hiService(name);
+
+        return result;
     }
 }

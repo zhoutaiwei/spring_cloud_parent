@@ -1,14 +1,11 @@
 server:
-  port:  8081
+  port:  2222
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/
-<<<<<<< HEAD
       #defaultZone: http://127.0.0.1:1112/eureka/,http://127.0.0.1:1111/eureka/
-=======
->>>>>>> 1a9f4b7ee2f8a5a2209a3e2d2130e5a724d3ede3
       #缓存清单的更新时间
       registry-fetch-interval-seconds: 30
 

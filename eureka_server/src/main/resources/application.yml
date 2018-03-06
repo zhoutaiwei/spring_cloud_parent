@@ -19,8 +19,8 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-  #关闭保护机制，确保注册中心可以将不可用的实例正确剔除
-    enable-self-preservation: false
+  #关闭保护机制，确保注册中心可以将不可用的实例正确剔除<false 才是关闭>
+    enable-self-preservation: true
 management:
   context-path: /hello
 hello-service:

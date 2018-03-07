@@ -22,23 +22,18 @@ public class HelloController {
     @Value("${server.port}")
     String port;
     @RequestMapping("/hello")
-    public String getJSON() {
+    public String getJSON(String name) {
         //  return "{\"a\":[{\\\"name\\\":\\\"jobs\\\"}, {\\\"name\\\":\\\"bill\\\"},{\\\"product\\\":\\\"war3\\\"}]}"
          ServiceInstance instance=client.getLocalServiceInstance();
-<<<<<<< HEAD
          //让线程等待几秒钟
-        int time=new Random().nextInt(3000);
+        int time=new Random().nextInt(1500);
         logger.info("等待时间："+time);
-=======
-        int time=new Random().nextInt(3000);
-        logger.info("时间:"+time);
->>>>>>> 1a9f4b7ee2f8a5a2209a3e2d2130e5a724d3ede3
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        logger.info("hello, host : " + instance.getHost()+" service_id : "+instance.getServiceId());
+        logger.info(name+"---hello, host : " + instance.getHost()+" service_id : "+instance.getServiceId());
         return "Hello World";
     }
 }

@@ -7,3 +7,9 @@ server:
 spring:
   application:
     name: service-ribbon
+##########开启缓存##############
+hystrix:
+  command:
+    default:
+      requestCache:
+        enabled: true

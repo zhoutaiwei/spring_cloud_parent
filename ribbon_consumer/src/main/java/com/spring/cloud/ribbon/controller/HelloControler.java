@@ -1,5 +1,6 @@
 package com.spring.cloud.ribbon.controller;
 
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import com.spring.cloud.ribbon.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -22,6 +23,7 @@ public class HelloControler {
 
     @RequestMapping(value = "/hello-consumer" , method = RequestMethod.GET)
     public String hi(@RequestParam String name) {
+        HystrixRequestContext.initializeContext();//初始化请求上下文
         String result=helloService.hiService(name);
 
         return result;

@@ -18,11 +18,16 @@ public class HelloControler {
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
+    static HystrixRequestContext context;
+    static {
+        context = HystrixRequestContext.initializeContext();
+    }
     @Autowired
     HelloService helloService;
     @RequestMapping(value = "/hello-consumer" , method = RequestMethod.GET)
     public String hi(@RequestParam String name) {
-        HystrixRequestContext.initializeContext();//初始化请求上下文
+     //   HystrixRequestContext.initializeContext();//初始化请求上下文
+        HystrixRequestContext.setContextOnCurrentThread(context);
         String result=helloService.hiService(name);
 
         return result;

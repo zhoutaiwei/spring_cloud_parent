@@ -1,6 +1,7 @@
 package com.spring.cloud.ribbon.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheKey;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class HelloService extends BaseService {
 	@Autowired
 	RestTemplate restTemplate;
+
 
 	//设置请求缓存
 	@CacheResult(cacheKeyMethod = "cacheKey")
@@ -24,7 +26,7 @@ public class HelloService extends BaseService {
 	 */
 	public String cacheKey(String name) {
 
-		System.out.print("调用缓存方法。。。。。");
+		System.out.println("调用缓存方法。。。。。");
 		return name;
 	}
 

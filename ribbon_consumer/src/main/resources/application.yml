@@ -13,3 +13,4 @@ hystrix:
     default:
       requestCache:
         enabled: true
+

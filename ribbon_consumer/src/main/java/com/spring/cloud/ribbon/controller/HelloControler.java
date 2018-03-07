@@ -20,7 +20,6 @@ public class HelloControler {
     }
     @Autowired
     HelloService helloService;
-
     @RequestMapping(value = "/hello-consumer" , method = RequestMethod.GET)
     public String hi(@RequestParam String name) {
         HystrixRequestContext.initializeContext();//初始化请求上下文

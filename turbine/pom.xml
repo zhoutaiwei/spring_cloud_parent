@@ -15,8 +15,16 @@
 
     <dependencies>
         <dependency>
+            <artifactId>org.springframework.cloud</artifactId>
+            <groupId>spring-cloud-starter-parent</groupId>
+            <type>pom</type><!--它只是个pom-->
+            <scope>import</scope><!--需要充其他pom文件中导入-->
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-netflix-turbine-amqp -->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-netflix-turbine-amqp</artifactId>
+            <version>1.0.4.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

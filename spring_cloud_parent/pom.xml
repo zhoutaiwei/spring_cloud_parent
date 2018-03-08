@@ -13,20 +13,13 @@
         <module>../eureka_client</module>
         <module>../ribbon_consumer</module>
         <module>../hystrix-dashboard</module>
-        <module>../turbine</module>
     </modules>
     <parent>
-        <artifactId>org.springframework.cloud</artifactId>
-        <groupId>spring-cloud-starter-parent</groupId>
-        <version>Camden.SR3</version>
-        <relativePath>../spring_cloud_parent/pom.xml</relativePath>
-    </parent>
-   <!-- <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.5.RELEASE</version>
-        <relativePath /> &lt;!&ndash; lookup parent from repository &ndash;&gt;
-    </parent>-->
+        <relativePath />
+    </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -64,7 +57,17 @@
             <version>1.4.5.RELEASE</version>
         </dependency>
     </dependencies>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <artifactId>org.springframework.cloud</artifactId>
+                <groupId>spring-cloud-starter-parent</groupId>
+                <version>Camden.SR3</version><!--与springboot1.4.x相对应-->
+                <type>pom</type><!--它只是个pom-->
+                <scope>import</scope><!--需要充其他pom文件中导入-->
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>

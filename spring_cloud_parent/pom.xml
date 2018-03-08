@@ -13,6 +13,7 @@
         <module>../eureka_client</module>
         <module>../ribbon_consumer</module>
         <module>../hystrix-dashboard</module>
+        <module>../turbine</module>
     </modules>
     <parent>
         <artifactId>org.springframework.cloud</artifactId>

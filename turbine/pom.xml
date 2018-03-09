@@ -3,33 +3,28 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring_cloud_parent</artifactId>
-        <groupId>com.spring.cloud</groupId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../spring_cloud_parent/pom.xml</relativePath>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>Camden.SR5</version>
+        <relativePath />
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>turbine</artifactId>
-
-
     <dependencies>
         <dependency>
-            <artifactId>org.springframework.cloud</artifactId>
-            <groupId>spring-cloud-starter-parent</groupId>
-            <type>pom</type><!--它只是个pom-->
-            <scope>import</scope><!--需要充其他pom文件中导入-->
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-netflix-turbine-amqp -->
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-turbine-amqp</artifactId>
-            <version>1.0.4.RELEASE</version>
+            <artifactId>spring-cloud-starter-turbine</artifactId>
+            <version>1.4.3.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+        </dependency>
+
     </dependencies>
 
 

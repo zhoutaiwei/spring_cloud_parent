@@ -62,7 +62,7 @@
             <dependency>
                 <artifactId>org.springframework.cloud</artifactId>
                 <groupId>spring-cloud-starter-parent</groupId>
-                <version>Camden.SR3</version><!--与springboot1.4.x相对应-->
+                <version>Camden.SR5</version><!--与springboot1.4.x相对应-->
                 <type>pom</type><!--它只是个pom-->
                 <scope>import</scope><!--需要充其他pom文件中导入-->
             </dependency>

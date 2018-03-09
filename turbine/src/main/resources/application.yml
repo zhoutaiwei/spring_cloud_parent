@@ -1,0 +1,15 @@
+
+server:
+  port: 8989
+spring:
+  application:
+    name: turbine
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1111/eureka/
+turbine:
+  app-config: service-ribbon
+  cluster-name-expression: "default"
+  combine-host-port: true
+

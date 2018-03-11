@@ -13,6 +13,7 @@
         <module>../eureka_client</module>
         <module>../ribbon_consumer</module>
         <module>../hystrix-dashboard</module>
+        <module>../feign_consumer</module>
     </modules>
    <parent>
         <groupId>org.springframework.boot</groupId>
@@ -26,6 +27,11 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>

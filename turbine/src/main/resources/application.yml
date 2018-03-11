@@ -10,6 +10,9 @@ eureka:
       defaultZone: http://127.0.0.1:1111/eureka/
 turbine:
   app-config: service-ribbon
-  cluster-name-expression: "default"
+  cluster-name-expression: new String('default')
+  #示同一主机上的服务通过host和port的组合来进行区分，默认情况下是使用host来区分，这样会使本地调试有问题
   combine-host-port: true
+management:
+  port: 8990
 

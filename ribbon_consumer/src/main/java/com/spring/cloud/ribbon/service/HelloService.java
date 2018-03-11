@@ -1,36 +1,72 @@
 package com.spring.cloud.ribbon.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheKey;
-import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
+import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
+import com.spring.cloud.ribbon.POJO.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import rx.Observable;
+import rx.Subscriber;
+
+import java.util.concurrent.Future;
 
 @Service
 public class HelloService extends BaseService {
-	@Autowired
-	RestTemplate restTemplate;
+    @Autowired
+    RestTemplate restTemplate;
 
 
-	//设置请求缓存
-	@CacheResult(cacheKeyMethod = "cacheKey")
-	@HystrixCommand(fallbackMethod = "helloFallback")
-	public String hiService( String name) {
-		return restTemplate.getForEntity("http://hello-service/hello?name="+name, String.class,name).getBody();
-	}
+    //设置请求缓存
+    //@CacheResult(cacheKeyMethod = "cacheKey")//不使用缓存啦，，，，，
+    @HystrixCommand(fallbackMethod = "helloFallback")
+    public String hiService(String name) {
+        return restTemplate.getForEntity("http://hello-service/hello?name=" + name, String.class, name).getBody();
+    }
 
-	/**
-	 * 设置缓存key，由cacheKeyMethod指定
-	 */
-	public String cacheKey(String name) {
+    /**
+     * 异步单个结果 queue
+     * @param user
+     * @return
+     */
+    @HystrixCommand
+    public Future<User> getUser(final User user) {
 
-		System.out.println("调用缓存方法。。。。。");
-		return name;
-	}
+        return new AsyncResult<User>() {
+            @Override
+            public User invoke() {
+                //如果传入的参数是对象，则使用post方式postForObject
+                User object = restTemplate.postForObject("http://hello-service/hello03", user, User.class);
+                return object;
+            }
+        };
+    }
 
-	public static void main(String[] args) {
-		String t = "asdfasd";
-	}
+    /**
+     * 返回多个结果
+     * @param name
+     * @return
+     */
+    //@HystrixCommand(observableExecutionMode = ObservableExecutionMode.EAGER)//表示使用observable方式执行
+    //@HystrixCommand(observableExecutionMode = ObservableExecutionMode.LAZY)//表示使用toObservable方式执行
+    @HystrixCommand
+    public Observable<String> getObsrvable(String name){
+        return Observable.create(new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> observable) {
+                if(!observable.isUnsubscribed()){
+                    try {
+                        String result=restTemplate.getForEntity("http://hello-service/hello?name=" + name, String.class, name).getBody();
+                        //可以操作多个结果
+                        observable.onNext(result);
+                        observable.onNext(name);
+                        observable.onCompleted();
+                    } catch (RestClientException e) {
+                        observable.onError(e);
+                    }
+                }
+            }
+        });
+    }
 }

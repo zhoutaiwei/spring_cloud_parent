@@ -1,9 +1,29 @@
 spring:
   application:
     name: feign-cosumer
+    cloud:
+      loadbalancer:
+        retry:
+          enabled: true #该参数用来开启重试机制
 server:
   port: 9010
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
+##################ribbon重试配置###############################
+hello-service:
+  ribbon:
+    ConnectTimeout: 250 #请求连接的超时时间
+    ReadTimeout: 1000 #请求处理的超时时间
+    OkToRetryOnAllOperations: true #对所有请求都进行重试
+    MaxAutoRetriesNextServer: 2 #切换实例的重试次数（当有多个实例时）
+    MaxAutoRetries: 1 #对当前实例的重试次数
+#断路器的超时时间需要大于Ribbon的超时时间，不然不会触发重试（断路器默认超时时间 1000ms）
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+        thread:
+          timeoutInMilliseconds: 10000

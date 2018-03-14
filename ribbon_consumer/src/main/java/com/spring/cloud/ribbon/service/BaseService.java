@@ -8,8 +8,12 @@ public class BaseService {
      * @return
      */
     public String helloFallback(String name,Throwable t){
+        if(null==t){
+            System.out.println("请求不成功，但没有异常");
+        }else{
+            System.out.println("出现异常:"+t);
+        }
 
-        System.out.println("超时或出现异常"+t.getMessage());
         return  "error："+name;
     }
 

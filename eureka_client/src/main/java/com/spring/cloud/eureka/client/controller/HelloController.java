@@ -31,7 +31,7 @@ public class HelloController {
         //  return "{\"a\":[{\\\"name\\\":\\\"jobs\\\"}, {\\\"name\\\":\\\"bill\\\"},{\\\"product\\\":\\\"war3\\\"}]}"
          ServiceInstance instance=client.getLocalServiceInstance();
          //让线程等待几秒钟
-        int time=new Random().nextInt(1000);
+        int time=new Random().nextInt(1500);
         logger.info("等待时间："+time);
         try {
             Thread.sleep(time);

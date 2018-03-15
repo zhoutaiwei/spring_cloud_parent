@@ -23,28 +23,4 @@ eureka:
   server:
   #关闭保护机制，确保注册中心可以将不可用的实例正确剔除(false 为关闭)
     enable-self-preservation: true
-##################ribbon重试配置###############################
-hello-service:
-  ribbon:
-    ConnectTimeout: 250 #请求连接的超时时间
-    ReadTimeout: 1000 #请求处理的超时时间
-    OkToRetyOnAllOperations: true #对所有请求都进行重试
-    MaxAutoRetriesNextServer: 2 #切换实例的重试次数（当有多个实例时）
-    MaxAutoRetries: 1 #对当前实例的重试次数
-#该参数用来开启重试机制
-spring:
-  cloud:
-    loadbalancer:
-      retry:
-        enabled: true
-#########################################################
-#######################断路器配置##################################
-#断路器的超时时间需要大于Ribbon的超时时间，不然不会触发重试
-hystrix:
-  command:
-    default:
-      execution:
-      isolation:
-        thread:
-          timeoutInMilliseconds: 10000
-#########################################################
+

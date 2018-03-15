@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * 降级处理类，在HelloService的@FeignClient注解中指定 生效
  */
-@Component
+@Component("fallback")
 public class HelloSericeFallback implements HelloService {
     @Override
     public String getFeignResult(@RequestParam(value = "name") String  name){

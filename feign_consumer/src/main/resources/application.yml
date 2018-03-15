@@ -30,4 +30,4 @@ hystrix:
 
 feign:
   hystrix:
-    enabled: true #开启hystrix
+    enabled: true #开启hystrix,开启了降级才有效

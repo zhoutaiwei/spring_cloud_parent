@@ -2,6 +2,7 @@ package com.feign.consumer.service;
 
 import com.feign.consumer.POJO.User;
 import com.feign.consumer.configuration.DisableHystrixConfig;
+import com.feign.consumer.fallback.HelloSericeFallback;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-@FeignClient(value = "hello-service" ,configuration = DisableHystrixConfig.class)
+@FeignClient(value = "hello-service" ,configuration = DisableHystrixConfig.class,fallback = HelloSericeFallback.class)
 public interface HelloService {
 
         @RequestMapping("/hello")

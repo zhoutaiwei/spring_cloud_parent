@@ -1,0 +1,19 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+#指定注册中心位置以及配置服务路由  http://127.0.0.1:5555/api-a/hello?name=hello-world
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: hello-service
+
+    api-b:
+      path: /api-b/**
+      serviceId: feign-consumer

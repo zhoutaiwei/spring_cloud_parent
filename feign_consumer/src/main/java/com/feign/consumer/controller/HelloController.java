@@ -36,8 +36,8 @@ public class HelloController {
      * @return
      */
     @RequestMapping(value="feign-consumer03",method = RequestMethod.GET)
-    public User getUser(){
-        User user=new User("zhoutaiwei",25,"男");
+    public User getUser(User user){
+        //User user=new User("zhoutaiwei",25,"男");
        return  service.getUser(user);
     }
 }

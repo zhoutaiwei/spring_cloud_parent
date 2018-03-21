@@ -7,13 +7,33 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
+    #registerWithEureka: false #false:不作为一个客户端注册到注册中心
+    #fetchRegistry: false #为true时，可以启动，但报异常：Cannot execute request on any known server
+
 #指定注册中心位置以及配置服务路由  http://127.0.0.1:5555/api-a/hello?name=hello-world
 zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
   routes:
     api-a:
       path: /api-a/**
-      serviceId: hello-service
+      serviceId: hello-service #也可以 zuul.routes.api-a=/api-a/** 的方式写
 
     api-b:
       path: /api-b/**
       serviceId: feign-consumer
+
+    user-service:
+      path: /user-service/**
+      serviceId: hello-service
+#############配置多实例################
+#由于serviceId指定了服务名称，默认情况下，ribbon会根据服务发现机制来
+#获取配置服务名对应的实例清单，但由于该实例没有整合类似Eureka之类的服务治理框架，所以要设置为false，否则serviceId会获取不到对应的实例清单
+ribbon:
+  eureka:
+    enabled: false
+
+hello-service:
+  ribbon:
+    listOfServers: localhost:2221/, localhost:2222/ #通过这种方式去连接指定的服务，

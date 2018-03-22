@@ -4,5 +4,10 @@
 out
 gen
 *.patch
-/.idea/*
-/target/classes
+/*/.idea/
+/.idea/
+Spring_Cloud
+.metadata/
+target
+
+

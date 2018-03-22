@@ -16,9 +16,11 @@ zuul:
     socket-timeout-millis: 60000
     connect-timeout-millis: 60000
   routes:
-    ignored-services: '*' #除了这三个外，其他服务都被忽略
+  ignored-services: '*' #除了这三个外，其他服务都被忽略，不被路由所映射
+  ignored-patterns: **/hello01/** #用来设置不API网关进行理由的url表达式
+
     api-a:
-      path: /api-a/**
+      path: /api-a/** # $代表带个字符，* 代表任意字符， ** 代表任意字符且多层目录
       serviceId: hello-service #也可以 zuul.routes.api-a=/api-a/** 的方式写
 
     api-b:
@@ -27,7 +29,7 @@ zuul:
 
     user-service:
       path: /user-service/**
-      serviceId: hello-service
+      serviceId: hello-servic
 
 hello-service:
   ribbon:

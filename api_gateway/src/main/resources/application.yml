@@ -12,13 +12,11 @@ eureka:
 
 #指定注册中心位置以及配置服务路由  http://127.0.0.1:5555/api-a/hello?name=hello-world
 zuul:
-  host:
-    socket-timeout-millis: 60000
-    connect-timeout-millis: 60000
-  routes:
   ignored-services: '*' #除了这三个外，其他服务都被忽略，不被路由所映射
-  ignored-patterns: **/hello01/** #用来设置不API网关进行理由的url表达式
-
+  ignored-patterns: /**/hello01/** #用来设置不API网关进行路由的url表达式
+ # retryable: false #关闭全局重试机制 ，zuul.routes.api-a.retryable关闭指定路由的重试机制
+    add-host-header: true #防止响应头显示具体服务实例的地址和接口
+  routes:
     api-a:
       path: /api-a/** # $代表带个字符，* 代表任意字符， ** 代表任意字符且多层目录
       serviceId: hello-service #也可以 zuul.routes.api-a=/api-a/** 的方式写
@@ -31,18 +29,36 @@ zuul:
       path: /user-service/**
       serviceId: hello-servic
 
+    apc-c:
+      path: /api-c/**
+      url: forward:/api-b #本地跳转，当api网关接受到请求/api-c/hello时，会被api网关转发到/api-b/hello 上本地处理，但需要增加一个/api-b/hello接口的实现才行
+    #由于通过zuul请求路由时，会过滤掉http请求头的信息，有：Cookie，Set-Cookie，Authorization，过滤后会影响某些信息的传递
+    #可以通过全局覆盖为空来来覆盖默认值人，如： zuul.sensitiveHeaders= ，但不推荐
+    #可以指定路由来的参数来配置
+    #方法一：
+      customSensitiveHeaders: true
+
+      #方法二： 指定路由的敏感头信息为空
+     # sensitiveHeaders=
+
 hello-service:
   ribbon:
-    listOfServers: localhost:2221/, localhost:2222/ #通过这种方式去连接指定的服务，
+    listOfServers: localhost:2221/ #通过这种方式去连接指定的服务，
 #############配置多实例################
 #由于serviceId指定了服务名称，默认情况下，ribbon会根据服务发现机制来
 #获取配置服务名对应的实例清单，但由于该实例没有整合类似Eureka之类的服务治理框架，所以要设置为false，否则serviceId会获取不到对应的实例清单
 ribbon:
   eureka:
     enabled: false
-  ribbon:
-     ConnectTimeout: 250 #请求连接的超时时间
-     ReadTimeout: 1000 #请求处理的超时时间
+  ConnectTimeout: 5000 #设置路由转发请求时，创建请求连接的超时时间， 当此值大于timeoutInMilliseconds的时间时，若出现路由请求出现连接超时，会自动重试路由请求（相当于重试机制）
+  ReadTimeout: 6000 #设置路由转发请求的超时时间，他的超时处理是在连接后的，当他大于timeoutInMilliseconds时，如路由的请求处理时间超过该值时，不会再进行重试，小于就会了
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000 #设置api网关中路由转发请求的HystrixCommand执行的超时时间
 
 
 

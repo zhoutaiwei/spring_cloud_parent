@@ -8,6 +8,10 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class TurbineApplication {
+    /**
+     * 集群监控
+     * @param args
+     */
 
     public static void main(String[] args) {
         SpringApplication.run(TurbineApplication.class,args);

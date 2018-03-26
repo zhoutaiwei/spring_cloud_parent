@@ -53,6 +53,7 @@ public class AccessFilter extends ZuulFilter {
     @Override
     public Object run() {
         RequestContext context = RequestContext.getCurrentContext();
+       //    doSome();
         HttpServletRequest request = context.getRequest();
         logger.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
         String token = request.getParameter("accessToken");
@@ -65,6 +66,10 @@ public class AccessFilter extends ZuulFilter {
         context.set("success",false);
         System.out.println("ResponseBody : "+body);
         logger.info("access token ok!");
+
         return null;
+    }
+    public void doSome(){
+        throw new RuntimeException("exception");
     }
 }

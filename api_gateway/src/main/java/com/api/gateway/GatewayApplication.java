@@ -2,6 +2,7 @@ package com.api.gateway;
 
 
 import com.api.gateway.filter.AccessFilter;
+import com.api.gateway.filter.ErrorFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
@@ -16,5 +17,9 @@ public class GatewayApplication {
     @Bean
     public AccessFilter getAccessFilter(){
         return new AccessFilter();
+    }
+    @Bean
+    public ErrorFilter getErrorFilter(){
+        return new ErrorFilter();
     }
 }

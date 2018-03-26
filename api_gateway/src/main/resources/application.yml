@@ -15,7 +15,7 @@ zuul:
   ignored-services: '*' #除了这三个外，其他服务都被忽略，不被路由所映射
   ignored-patterns: /**/hello01/** #用来设置不API网关进行路由的url表达式
  # retryable: false #关闭全局重试机制 ，zuul.routes.api-a.retryable关闭指定路由的重试机制
-    add-host-header: true #防止响应头显示具体服务实例的地址和接口
+  add-host-header: true #防止响应头显示具体服务实例的地址和接口
   routes:
     api-a:
       path: /api-a/** # $代表带个字符，* 代表任意字符， ** 代表任意字符且多层目录

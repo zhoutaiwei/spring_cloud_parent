@@ -8,4 +8,5 @@ gen
 /.idea/
 Spring_Cloud
 .metadata/
+target
 

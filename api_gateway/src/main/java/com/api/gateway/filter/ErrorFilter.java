@@ -29,6 +29,7 @@ public class ErrorFilter extends ZuulFilter {
         RequestContext context = RequestContext.getCurrentContext();
         Throwable throwable = context.getThrowable();
         logger.error("This is a ErrorFilter:[{}]",throwable.getCause().getMessage());
+        //设置下面这些东西好像没什么用。。。
         context.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);//500
         context.set("error.exception", throwable.getCause());//异常对象
         context.set("error.message", "ErrorFilter");

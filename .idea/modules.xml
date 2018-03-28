@@ -3,11 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring_Cloud.iml" filepath="$PROJECT_DIR$/.idea/Spring_Cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api_gateway/api_gateway.iml" filepath="$PROJECT_DIR$/api_gateway/api_gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api_gateway_dynamic_route/api_gateway_dynamic_route.iml" filepath="$PROJECT_DIR$/api_gateway_dynamic_route/api_gateway_dynamic_route.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config_server/config_server.iml" filepath="$PROJECT_DIR$/config_server/config_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka_client/eureka_client.iml" filepath="$PROJECT_DIR$/eureka_client/eureka_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feign_consumer/feign_consumer.iml" filepath="$PROJECT_DIR$/feign_consumer/feign_consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/hystrix-dashboard/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/hystrix-dashboard/hystrix-dashboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/ribbon_consumer/ribbon_consumer.iml" filepath="$PROJECT_DIR$/ribbon_consumer/ribbon_consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_cloud_parent/spring_cloud_parent.iml" filepath="$PROJECT_DIR$/spring_cloud_parent/spring_cloud_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/turbine/turbine.iml" filepath="$PROJECT_DIR$/turbine/turbine.iml" />
     </modules>
   </component>
 </project>

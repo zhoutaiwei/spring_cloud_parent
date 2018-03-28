@@ -16,6 +16,9 @@ zuul:
   ignored-patterns: /**/hello01/** #用来设置不API网关进行路由的url表达式
  # retryable: false #关闭全局重试机制 ，zuul.routes.api-a.retryable关闭指定路由的重试机制
   add-host-header: true #防止响应头显示具体服务实例的地址和接口
+  AccessFilter:
+    error:
+      disable: true #禁用过滤器
   routes:
     api-a:
       path: /api-a/** # $代表带个字符，* 代表任意字符， ** 代表任意字符且多层目录
@@ -27,7 +30,7 @@ zuul:
 
     user-service:
       path: /user-service/**
-      serviceId: hello-servic
+      serviceId: hello-service
 
     apc-c:
       path: /api-c/**
@@ -43,7 +46,7 @@ zuul:
 
 hello-service:
   ribbon:
-    listOfServers: localhost:2221/ #通过这种方式去连接指定的服务，
+    listOfServers: localhost:2222/ #通过这种方式去连接指定的服务，
 #############配置多实例################
 #由于serviceId指定了服务名称，默认情况下，ribbon会根据服务发现机制来
 #获取配置服务名对应的实例清单，但由于该实例没有整合类似Eureka之类的服务治理框架，所以要设置为false，否则serviceId会获取不到对应的实例清单

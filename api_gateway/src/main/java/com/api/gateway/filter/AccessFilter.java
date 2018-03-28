@@ -41,7 +41,6 @@ public class AccessFilter extends ZuulFilter {
      */
     @Override
     public boolean shouldFilter() {
-        RequestContext context = RequestContext.getCurrentContext();
         return true;
         //return (boolean)context.get("success");//返回success，说明上一个 过滤器成功了，若不成功则这个及以下的过滤器都不执行，直接返回结果
     }
@@ -53,7 +52,7 @@ public class AccessFilter extends ZuulFilter {
     @Override
     public Object run() {
         RequestContext context = RequestContext.getCurrentContext();
-       //    doSome();
+   //       doSome();
         HttpServletRequest request = context.getRequest();
         logger.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
         String token = request.getParameter("accessToken");

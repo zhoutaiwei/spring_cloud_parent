@@ -1,0 +1,17 @@
+server:
+  port: 7002
+  application:
+    name: didispace
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:7001/
+   #   discovery:
+  #      enabled: true
+   #     serviceId: config-server
+eureka:
+  client:
+    serviceUrl:
+ #     defaultZone: http://localhost:1111/eureka/
+

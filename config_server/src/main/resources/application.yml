@@ -5,10 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/zhoutaiwei/spring_cloud_parent/ #配置git仓库地址
-          searchPaths: config-repo #配置仓库路径
-          username: zhoutaiwei #访问git仓库的用户名
-          password: z6281350 #访问git仓库的用户密码
+         uri: https://github.com/zhoutaiwei/spring_cloud_parent/ #配置git仓库地址
+        #  searchPaths: config-repo #配置仓库路径
+      #    username:  #访问git仓库的用户名 ，公开项目，可以不用账户密码
+       #   password:  #访问git仓库的用户密码
       label: master  #配置仓库的分支
 server:
   port: 7001

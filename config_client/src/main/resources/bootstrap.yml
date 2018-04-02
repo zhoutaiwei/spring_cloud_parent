@@ -1,12 +1,12 @@
 server:
   port: 7002
   application:
-    name: didispace
+    name: didispace #对应文件规则中的{application}
   cloud:
     config:
       label: master
-      profile: dev
-      uri: http://localhost:7001/
+      profile: dev #对应文件规则中的{profile}
+      uri: http://localhost:7001/ #配置中心的url地址
    #   discovery:
   #      enabled: true
    #     serviceId: config-server

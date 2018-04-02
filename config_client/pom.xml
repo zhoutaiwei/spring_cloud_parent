@@ -13,6 +13,12 @@
     <artifactId>config_client</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- 当无法连接到config server时， 用于重试连接config server，默认6次-->
         <dependency>
             <groupId>org.springframework.retry</groupId>

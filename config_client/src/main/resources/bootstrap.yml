@@ -1,17 +1,23 @@
 server:
   port: 7002
+spring:
   application:
-    name: didispace #对应文件规则中的{application}
+    name: didispace #指定{application}
   cloud:
     config:
-      label: master
-      profile: dev #对应文件规则中的{profile}
-      uri: http://localhost:7001/ #配置中心的url地址
-   #   discovery:
-  #      enabled: true
-   #     serviceId: config-server
+      label: master #指定分支
+      profile: dev #指定环境{profile}
+   #   uri: http://localhost:7001/ #添加到了注册中心就不用指定URL了
+      discovery:
+        enabled: true
+        serviceId: config-server
+      fail-fast: true #实现客户端优先判断config server是否正常，并快速响应失败内容（平时判断config server是否正常在很后面）
+      retry:
+        multiplier: 1000 #初始重试间隔时间
+        initial-interval: 1.1 #下一次的乘值，当multiplier设为1000时，下一次就是1100
+        max-attempts: 6  #最大重试次数
 eureka:
   client:
     serviceUrl:
- #     defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:1111/eureka/
 

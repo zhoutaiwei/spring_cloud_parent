@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name='form1' action='http://127.0.0.1:7001/encrypt/' method='post'>
+    <input type='hidden' name='page' value='1'/>
+    <input type='hidden' name='hiddenA' value='A'/>
+    <a href='javascript:document.form1.submit();'>加密</font></a>
+</form>
+<form name='form2' action='http://127.0.0.1:7001/decrypt/' method='post'>
+    <input type='hidden' name='page' value='1'/>
+    <input type='hidden' name='hiddenA' value='A'/>
+    <a href='javascript:document.form2.submit();'>解密</font></a>
+</form>
+</body>
+</html>

@@ -1,14 +1,33 @@
 spring:
   application:
     name: config-server
+  profiles:
+  #    active: native #使用本地文件系统，不适用Git或svn
   cloud:
     config:
       server:
         git:
-         uri: https://github.com/zhoutaiwei/spring_cloud_parent/ #配置git仓库地址
-        #  searchPaths: config-repo #配置仓库路径
-      #    username:  #访问git仓库的用户名 ，公开项目，可以不用账户密码
-       #   password:  #访问git仓库的用户密码
-      label: master  #配置仓库的分支
+          uri: https://github.com/zhoutaiwei/spring_cloud_parent/ #配置git仓库地址   {application}/{profile}/{label}
+          searchPaths: config-repo #配置仓库路径 ,当使用占位符 {application}时，每个应用各建一个相应名字的文件夹就可以通用了
+          username: zhoutaiwei #访问git仓库的用户名
+          password: z6281350 #访问git仓库的用户密码
+          basedir: E:/git_tmp #使用Git或SVN，文件都会在本地存储一份，这是指定存储的路径
+        native:
+    #      search-locations: classpath:/config-repo/ #使用本地文件系统，指定文件的路径，和Git二选一
+      label: {label}  #配置仓库的分支，使用占位符就可以使用不同分支了
+    #  user: user #安全校验，检验输入的安全信息是否正确
+    #  password: password
+
 server:
   port: 7001
+security:
+  user:
+    #name: user #设置安全保护，指定用户登录账户和密码
+    #password: password
+encrypt:
+  key: z6281350 #用于加解密，发送post请求 127.0.0.1:7001/encrypt加密，127.0.0.1:7001/decrypt解密
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1111/eureka/ #配置注册服务中心
+

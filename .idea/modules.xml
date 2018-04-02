@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Spring_Cloud.iml" filepath="$PROJECT_DIR$/.idea/Spring_Cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/api_gateway/api_gateway.iml" filepath="$PROJECT_DIR$/api_gateway/api_gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/api_gateway_dynamic_route/api_gateway_dynamic_route.iml" filepath="$PROJECT_DIR$/api_gateway_dynamic_route/api_gateway_dynamic_route.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config_client/config_client.iml" filepath="$PROJECT_DIR$/config_client/config_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/config_server/config_server.iml" filepath="$PROJECT_DIR$/config_server/config_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka_client/eureka_client.iml" filepath="$PROJECT_DIR$/eureka_client/eureka_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />

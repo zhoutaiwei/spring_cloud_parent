@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api_gateway" />
         <module name="api_gateway_dynamic_route" />
+        <module name="config_client" />
         <module name="config_server" />
         <module name="eureka_client" />
         <module name="eureka_server" />
@@ -21,6 +22,7 @@
     <bytecodeTargetLevel>
       <module name="api_gateway" target="1.8" />
       <module name="api_gateway_dynamic_route" target="1.8" />
+      <module name="config_client" target="1.8" />
       <module name="config_server" target="1.8" />
       <module name="eureka_client" target="1.8" />
       <module name="eureka_server" target="1.8" />
@@ -31,5 +33,8 @@
       <module name="spring_cloud_parent" target="1.8" />
       <module name="turbine" target="1.6" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="GENERATE_NO_WARNINGS" value="true" />
   </component>
 </project>

@@ -1,0 +1,18 @@
+server:
+  port: 8057
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+           destination: output #指定通道的具体主题来实现MessageFeedBack中的消息互通,要在两个应用
+           group: input #添加组名后，当同一个主题 下有多个服务时，就只有一个服务进行消费，同一主题下不同组名都会收到
+           content-type: application/json #设置消息类型
+        output:
+          destination: input #指定通道的具体主题来实现MessageFeedBack中的消息互通,要在两个应用
+          group: input
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

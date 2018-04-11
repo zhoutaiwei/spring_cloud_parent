@@ -22,7 +22,7 @@ zuul:
   routes:
     api-a:
       path: /api-a/** # $代表带个字符，* 代表任意字符， ** 代表任意字符且多层目录
-      serviceId: hello-service #也可以 zuul.routes.api-a=/api-a/** 的方式写
+      serviceId: hello-service #也可以 zuul.routes.hello-service=/api-a/** 的方式写
 
     api-b:
       path: /api-b/**

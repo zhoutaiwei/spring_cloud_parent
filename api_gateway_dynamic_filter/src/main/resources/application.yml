@@ -1,0 +1,15 @@
+server:
+  port: 5557
+spring:
+  application:
+    name: api-gateway-filter
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1111/eureka/
+zuul:
+  routes:
+    hello-service: /hello-service/**
+  filter:
+    root: filter #用来指定动态加载的过滤器存储路径
+    interval: 5 #龙来配置动态加载的间隔时间

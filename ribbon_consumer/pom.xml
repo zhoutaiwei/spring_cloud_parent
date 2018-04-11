@@ -18,7 +18,11 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.5</version>
+        </dependency>
         <!-- 将输出信息输出给rabbitMQ-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -1,6 +1,11 @@
 spring:
   application:
     name: config-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: springcloud
   profiles:
   #    active: native #使用本地文件系统，不适用Git或svn
   cloud:
@@ -30,4 +35,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/ #配置注册服务中心
+hystrix:
+  threadpool:
+    default:
+      coreSize: 10
 

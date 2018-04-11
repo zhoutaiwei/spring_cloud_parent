@@ -19,6 +19,10 @@
         <module>../config_server</module>
         <module>../config_client</module>
         <module>../api_gateway_dynamic_route</module>
+        <module>../api_gateway_dynamic_filter</module>
+        <module>../rabbitmq_hello</module>
+        <module>../rabbitmqhello</module>
+        <module>../streamhello</module>
     </modules>
    <parent>
         <groupId>org.springframework.boot</groupId>

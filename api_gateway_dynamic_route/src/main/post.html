@@ -5,27 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<form name='form1' action='http://127.0.0.1:7001/encrypt/' method='post'>
+<form name='form1' action='http://127.0.0.1:5556/encrypt/' method='post'>
     <input type='hidden' name='page' value='1'/>
     <input type='hidden' name='hiddenA' value='A'/>
     <a href='javascript:document.form1.submit();'>加密</font></a>
 </form>
-<form name='form2' action='http://127.0.0.1:7001/decrypt/' method='post'>
+<form name='form2' action='http://127.0.0.1:5556/decrypt/' method='post'>
     <input type='hidden' name='page' value='1'/>
     <input type='hidden' name='hiddenA' value='A'/>
-    <a href='javascript:document.form2.submit();'>解密</font></a>
+    <a href='javascript:document.form2.submit();'>解密</font></a><!--不能用-->
 </form>
 
-<form name='form3' action='http://127.0.0.1:7002/refresh' method='post'>
+<form name='form3' action='http://127.0.0.1:5556/refresh' method='post'>
     <input type='hidden' name='page' value='1'/>
     <input type='hidden' name='hiddenA' value='A'/>
     <a href='javascript:document.form3.submit();'>刷新数据</font></a>
-</form>
-
-<form name='form4' action='http://127.0.0.1:7001/bus/refresh' method='post'>
-    <input type='hidden' name='page' value='1'/>
-    <input type='hidden' name='hiddenA' value='A'/>
-    <a href='javascript:document.form4.submit();'>队列刷新数据</font></a>
 </form>
 </body>
 </html>

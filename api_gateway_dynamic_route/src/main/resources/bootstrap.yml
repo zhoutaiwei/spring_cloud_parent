@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: api-gateway-dynamic
+  cloud:
+    config:
+    #  uri: http://127.0.0.1:7001/
+      label: master #指定分支
+      profile: dev #指定环境{profile}
+      discovery:
+       enabled: true #发现注册中心
+       serviceId: config-server
+server:
+  port: 5556
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1111/eureka/

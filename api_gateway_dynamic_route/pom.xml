@@ -12,6 +12,11 @@
 
     <artifactId>api_gateway_dynamic_route</artifactId>
     <dependencies>
+        <!--用于动态刷新-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>

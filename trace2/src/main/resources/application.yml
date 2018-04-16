@@ -1,0 +1,17 @@
+server:
+  port: 5599
+spring:
+  application:
+    name: trace-2
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: debug #将spring mvc的请求分发日志级别调整为debug级别

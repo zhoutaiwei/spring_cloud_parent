@@ -22,7 +22,7 @@ public class HelloService extends BaseService {
     //@CacheResult(cacheKeyMethod = "cacheKey")//不使用缓存啦，，，，，
     @HystrixCommand(fallbackMethod = "helloFallback")
     public String hiService(String name) {
-        return restTemplate.getForEntity("http://hello-service/hello?name=" + name, String.class, name).getBody();
+        return restTemplate.getForEntity("http://hello-service/hello?name={1}" , String.class, name).getBody();
     }
 
     /**

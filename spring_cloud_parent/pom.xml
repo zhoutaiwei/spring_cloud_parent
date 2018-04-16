@@ -23,6 +23,8 @@
         <module>../rabbitmq_hello</module>
         <module>../rabbitmqhello</module>
         <module>../streamhello</module>
+        <module>../trace1</module>
+        <module>../trace2</module>
     </modules>
    <parent>
         <groupId>org.springframework.boot</groupId>

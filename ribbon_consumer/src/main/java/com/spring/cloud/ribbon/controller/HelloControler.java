@@ -40,8 +40,8 @@ public class HelloControler {
     }
 
     @RequestMapping(value = "/hello-consumer01" , method = RequestMethod.GET)
-    public User getUser() throws ExecutionException, InterruptedException {
-        User users=new User("zs",15,"gg");
+    public User getUser(User users) throws ExecutionException, InterruptedException {
+      //  User users=new User("zs",15,"gg");
         Future<User> user = helloService.getUser(users);
         User user1 = user.get();
 

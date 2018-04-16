@@ -1,0 +1,12 @@
+server:
+  port: 5588
+spring:
+  application:
+    name: trace-1
+  sleuth:
+    hsampler:
+      percentage: 0.1 #代表收集10%的 请求跟踪信息
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

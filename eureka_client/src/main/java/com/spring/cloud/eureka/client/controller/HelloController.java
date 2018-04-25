@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import sun.applet.Main;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,7 +23,6 @@ import java.util.Random;
 
 @RestController
 public class HelloController {
-
     Logger logger = LoggerFactory.getLogger(HelloController.class);
     @Autowired
     private DiscoveryClient client;

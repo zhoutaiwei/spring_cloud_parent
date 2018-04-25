@@ -6,9 +6,11 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/
       #defaultZone: http://127.0.0.1:1112/eureka/,http://127.0.0.1:1111/eureka/
+      #defaultZone: http://user:passowrd@127.0.0.1:1112/eureka/ 如果eureka service 设置安全认证的话
       #缓存清单的更新时间
       registry-fetch-interval-seconds: 30
-
+    healthcheck:
+      enable: true #健康检查，配置后会将健康状态传到eureka server中
 spring:
   application:
     name: hello-service

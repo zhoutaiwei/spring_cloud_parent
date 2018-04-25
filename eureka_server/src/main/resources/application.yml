@@ -23,4 +23,9 @@ eureka:
   server:
   #关闭保护机制，确保注册中心可以将不可用的实例正确剔除(false 为关闭)
     enable-self-preservation: true
-
+security:  #pom已注释掉
+  basic:
+    enabled: true #开启基于http basic的认证
+  user:
+    name: user # 配置登录账户
+    password: password #配置登录密码

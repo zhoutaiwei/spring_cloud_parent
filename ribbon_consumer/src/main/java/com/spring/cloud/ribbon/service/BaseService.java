@@ -8,6 +8,7 @@ public class BaseService {
      * @return
      */
     public String helloFallback(String name,Throwable t){
+        //也可根据不同的异常类型返回不同的回退结果
         if(null==t){
             System.out.println("请求不成功，但没有异常");
         }else{

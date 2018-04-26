@@ -35,9 +35,5 @@ feign:
 #开启日志配置
 logging:
   level:
-    com:
-      feign:
-        consumer:
-          service:
-            HelloService: DEBUG
+    com.feign.consumer002.configuration.FeignLogConfiguration: DEBUG #feign只对debug支持
   # level: debug 全局配置

@@ -13,4 +13,4 @@ eureka:
       enable: true #健康检查，配置后会将健康状态传到eureka server中
 spring:
   application:
-    name: hello_service
+    name: hello-service

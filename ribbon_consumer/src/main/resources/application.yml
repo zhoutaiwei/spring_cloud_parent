@@ -19,6 +19,8 @@ hello-service:
       OkToRetryOnAllOperations: true #对所有请求都进行重试
       MaxAutoRetriesNextServer: 2 #切换实例的重试次数（当有多个实例时）
       MaxAutoRetries: 1 #对当前实例的重试次数
+      #NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 设置负载均衡策略，由于在RibbonConfiguration和TestConfig中已经弄了，所以这里不弄了
+      #listOfServer: 127.0.0.1:2222,127.0.0.1:2224 #脱离eureka使用ribbon，就是不使用spring cloud 使用负载均衡
 #断路器的超时时间需要大于Ribbon的超时时间，不然不会触发重试（断路器默认超时时间1000ms）
 hystrix:
   command:

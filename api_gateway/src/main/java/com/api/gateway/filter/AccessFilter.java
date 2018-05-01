@@ -27,7 +27,7 @@ public class AccessFilter extends ZuulFilter {
     }
 
     /**
-     * 过滤器的执行顺序，当请求在一个阶段中存在多个过滤器是，徐要根据该方法返回的值来依次执行
+     * 过滤器的执行顺序，当请求在一个阶段中存在多个过滤器时，需要根据该方法返回的值来依次执行
      * @return
      */
     @Override

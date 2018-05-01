@@ -8,8 +8,11 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/
 zuul:
+  PreFilter:
+    post:
+      disable: true #禁用过滤器
   routes:
     hello-service: /hello-service/**
   filter:
     root: filter #用来指定动态加载的过滤器存储路径
-    interval: 5 #龙来配置动态加载的间隔时间
+    interval: 5 #用来配置动态加载的间隔时间

@@ -1,28 +1,33 @@
 package com.zuul.dynamic.filter;
 
-import com.netflix.zuul.FilterFileManager;
-import com.netflix.zuul.FilterLoader;
-import com.netflix.zuul.groovy.GroovyCompiler;
-import com.netflix.zuul.groovy.GroovyFileFilter;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.zuul.dynamic.filter.configuration.FilterConfiguration;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @EnableZuulProxy
 @SpringCloudApplication
 @EnableConfigurationProperties(FilterConfiguration.class)
 public class ZuulFilterApplication {
-    //还没实现
+
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+    //filterLoader(FilterConfiguration config )还没实现
+
+    //AggregationController可一次调用两个接口,其实ribbon的observable也可以
     public static void main(String[] args) {
         new SpringApplicationBuilder(ZuulFilterApplication.class).web(true).run(args);
     }
 
-    @Value("${zuul.filter.root}")
+   /* @Value("${zuul.filter.root}")
     String root;
     @Value("${zuul.filter.interval}")
     Integer interval;
@@ -40,5 +45,5 @@ public class ZuulFilterApplication {
             e.printStackTrace();
         }
         return instance;
-    }
+    }*/
 }

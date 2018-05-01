@@ -2,6 +2,7 @@ package filter.prod
 
 import com.netflix.zuul.ZuulFilter
 import com.netflix.zuul.context.RequestContext
+import org.apache.zookeeper.proto.GetChildrenRequest
 
 import javax.servlet.http.HttpServletResponse
 

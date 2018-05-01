@@ -1,8 +1,13 @@
 server:
-  port: 5555
+  port: 5556
 spring:
   application:
     name: api-gateway
+  http: #文件上传
+    multipart:
+      max-file-size: 1500mb #文件最大大小
+      max-request-size: 2500mb #请求的最大大小
+
 eureka:
   client:
     serviceUrl:
@@ -21,9 +26,8 @@ zuul:
       disable: true #禁用过滤器
   routes:
     api-a:
-      path: /api-a/** # $代表带个字符，* 代表任意字符， ** 代表任意字符且多层目录
+      path: /api-a/** # $代表带1个字符，* 代表任意字符， ** 代表任意字符且多层目录
       serviceId: hello-service #也可以 zuul.routes.hello-service=/api-a/** 的方式写
-
     api-b:
       path: /api-b/**
       serviceId: feign-consumer
@@ -34,12 +38,14 @@ zuul:
 
     apc-c:
       path: /api-c/**
-      url: forward:/api-b #本地跳转，当api网关接受到请求/api-c/hello时，会被api网关转发到/api-b/hello 上本地处理，但需要增加一个/api-b/hello接口的实现才行
+      url: http://127.0.0.1:2222/
+    #  url: forward:/api-b #本地跳转，当api网关接受到请求/api-c/hello时，会被api网关转发到/api-b/hello 上本地处理，但需要增加一个/api-b/hello接口的实现才行
     #由于通过zuul请求路由时，会过滤掉http请求头的信息，有：Cookie，Set-Cookie，Authorization，过滤后会影响某些信息的传递
-    #可以通过全局覆盖为空来来覆盖默认值人，如： zuul.sensitiveHeaders= ，但不推荐
+    #可以通过全局覆盖为空来来覆盖默认值，如： zuul.sensitiveHeaders= ，但不推荐
     #可以指定路由来的参数来配置
     #方法一：
       customSensitiveHeaders: true
+
 
       #方法二： 指定路由的敏感头信息为空
      # sensitiveHeaders=
@@ -62,6 +68,9 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 10000 #设置api网关中路由转发请求的HystrixCommand执行的超时时间
+#logging:
+#  level:
+ #   com.netflix: DEBUG
 
 
 

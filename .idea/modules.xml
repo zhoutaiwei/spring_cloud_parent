@@ -16,7 +16,10 @@
       <module fileurl="file://$PROJECT_DIR$/ribbon_consumer/ribbon_consumer.iml" filepath="$PROJECT_DIR$/ribbon_consumer/ribbon_consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_cloud_parent/spring_cloud_parent.iml" filepath="$PROJECT_DIR$/spring_cloud_parent/spring_cloud_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/stream_hello/stream_hello.iml" filepath="$PROJECT_DIR$/stream_hello/stream_hello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trace1/trace1.iml" filepath="$PROJECT_DIR$/trace1/trace1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trace2/trace2.iml" filepath="$PROJECT_DIR$/trace2/trace2.iml" />
       <module fileurl="file://$PROJECT_DIR$/turbine/turbine.iml" filepath="$PROJECT_DIR$/turbine/turbine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/turtine-amqp/turtine-amqp.iml" filepath="$PROJECT_DIR$/turtine-amqp/turtine-amqp.iml" />
     </modules>
   </component>
 </project>

@@ -22,7 +22,7 @@ public class ZuulFilterApplication {
     }
     //filterLoader(FilterConfiguration config )还没实现
 
-    //AggregationController可一次调用两个接口,其实ribbon的observable也可以
+    //AggregationController可一次调用两个接口,其实ribbon的toObservable也可以
     public static void main(String[] args) {
         new SpringApplicationBuilder(ZuulFilterApplication.class).web(true).run(args);
     }

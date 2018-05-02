@@ -25,6 +25,7 @@
         <module>../streamhello</module>
         <module>../trace1</module>
         <module>../trace2</module>
+        <module>../turtineqmqp</module>
     </modules>
    <parent>
         <groupId>org.springframework.boot</groupId>

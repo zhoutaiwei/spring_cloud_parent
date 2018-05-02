@@ -1,5 +1,5 @@
 server:
-  port: 7003
+  port: 7002
 spring:
   application:
     name: didispace #指定{application}

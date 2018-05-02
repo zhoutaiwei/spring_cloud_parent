@@ -13,10 +13,12 @@ spring:
       server:
         git:
           uri: https://github.com/zhoutaiwei/spring_cloud_parent/ #配置git仓库地址
+          #search-paths: foo,bar* 当配置文件可能反正 子目录时，Config Server 会在 根目录，foo子目录和所有bar开头的 目录去找
           searchPaths: config-repo #配置仓库路径
           username: zhoutaiwei #访问git仓库的用户名
           password: z6281350 #访问git仓库的用户密码
-          basedir: E:/git_tmp 使用Git或SVN，文件都会在本地存储一份，这是指定存储的路径
+          basedir: E:/git_tmp #使用Git或SVN，文件都会在本地存储一份，这是指定存储的路径
+          clone-on-start: true #可帮助Config Server启动时快速识别错误原因（如无效的Git仓库）
         native:
     #      search-locations: classpath:/config-repo/ #使用本地文件系统，指定文件的路径，和Git二选一
       label: master  #配置仓库的分支
@@ -27,10 +29,10 @@ server:
   port: 7001
 security:
   user:
-    #name: user #设置安全保护，指定用户登录账户和密码
-    #password: password
+   # name: user #设置安全保护，指定用户登录账户和密码
+   # password:
 encrypt:
-  key: z6281350 #用于加解密，发送post请求 127.0.0.1:7001/encrypt加密，127.0.0.1:7001/decrypt解密
+  key: foo #对称密钥，用于加解密，发送post请求 127.0.0.1:7001/encrypt加密，127.0.0.1:7001/decrypt解密
 eureka:
   client:
     serviceUrl:

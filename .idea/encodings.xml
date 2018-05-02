@@ -14,6 +14,9 @@
     <file url="file://$PROJECT_DIR$/ribbon_consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring_cloud_parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stream_hello" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trace1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trace2" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/turbine" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/turtine-amqp" charset="UTF-8" />
   </component>
 </project>

@@ -1,6 +1,8 @@
 
 server:
   port: 8989
+management:
+  port: 8990
 spring:
   application:
     name: turbine
@@ -8,11 +10,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/
+  instance:
+    prefer-ip-address: true
 turbine:
-  app-config: service-ribbon
-  cluster-name-expression: new String('default')
+  app-config: service-ribbon,service-ribbon-007
+  cluster-name-expression: "'default'"
   #示同一主机上的服务通过host和port的组合来进行区分，默认情况下是使用host来区分，这样会使本地调试有问题
-  combine-host-port: true
-management:
-  port: 8990
 

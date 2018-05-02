@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/api_gateway/pom.xml" />
         <option value="$PROJECT_DIR$/api_gateway_dynamic_route/pom.xml" />
         <option value="$PROJECT_DIR$/stream_hello/pom.xml" />
+        <option value="$PROJECT_DIR$/turtine-amqp/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

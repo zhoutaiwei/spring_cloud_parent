@@ -6,6 +6,7 @@ management:
 eureka:
   instance:
     hostname: localhost
+
 #################################################
     #定义服务续约任务的调用间隔时间,客户端向服务端发送心跳的时间间隔
     lease-renewal-interval-in-seconds: 30

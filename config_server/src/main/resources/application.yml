@@ -4,8 +4,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: springcloud
-    password: springcloud
+    username: guest
+    password: guest
   profiles:
   #    active: native #使用本地文件系统，不适用Git或svn
   cloud:
@@ -17,10 +17,10 @@ spring:
           searchPaths: config-repo #配置仓库路径
           username: zhoutaiwei #访问git仓库的用户名
           password: z6281350 #访问git仓库的用户密码
-          basedir: E:/git_tmp #使用Git或SVN，文件都会在本地存储一份，这是指定存储的路径
-          clone-on-start: true #可帮助Config Server启动时快速识别错误原因（如无效的Git仓库）
+          basedir: E:/git_tmp01 #使用Git或SVN，文件都会在本地存储一份，这是指定存储的路径
+          clone-on-start: true #在Config-Server启动时就克隆配置文件。这是全局配置，可帮助Config Server启动时快速识别错误原因（如无效的Git仓库）
         native:
-    #      search-locations: classpath:/config-repo/ #使用本地文件系统，指定文件的路径，和Git二选一
+    #      search-locations: classpath:/config-repo/ #使用本地文件系统，指定文件的路径，开发是可这样配，和Git二选一
       label: master  #配置仓库的分支
     #  user: user #安全校验，检验输入的安全信息是否正确
     #  password: password
@@ -29,16 +29,15 @@ server:
   port: 7001
 security:
   user:
-   # name: user #设置安全保护，指定用户登录账户和密码
+   # name: user #设置安全保护，指定用户登录账户和密码，需要pom依赖
    # password:
 encrypt:
   key: foo #对称密钥，用于加解密，发送post请求 127.0.0.1:7001/encrypt加密，127.0.0.1:7001/decrypt解密
+            #curl url/encrypt -d 想要加密的密码
+            #curl url/decrypt -d 想要解密的密文
 eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/ #配置注册服务中心
-hystrix:
-  threadpool:
-    default:
-      coreSize: 10
+
 

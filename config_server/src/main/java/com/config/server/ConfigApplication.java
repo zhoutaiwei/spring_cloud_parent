@@ -10,6 +10,9 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableConfigServer
 @SpringBootApplication
 public class ConfigApplication {
+
+
+    //http://127.0.0.1:7002/bus/refresh?destination=customers:7003 忽略指定client的更新
     public static void main(String[] args) {
             new SpringApplicationBuilder(ConfigApplication.class).web(true).run(args);
     }

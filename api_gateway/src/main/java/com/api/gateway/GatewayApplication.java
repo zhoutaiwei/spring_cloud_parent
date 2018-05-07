@@ -19,7 +19,7 @@ public class GatewayApplication {
         return new AccessFilter();
     }
     @Bean
-    public ErrorFilter getErrorFilter(){
+    public ErrorFilter getErrorFilter( ){
         return new ErrorFilter();
     }
 }

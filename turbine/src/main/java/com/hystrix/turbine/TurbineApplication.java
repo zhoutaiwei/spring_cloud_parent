@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 @SpringBootApplication
 public class TurbineApplication {
     /**
-     * 集群监控
+     * 集群监控 ,要在hystrix-dashboard的127.0.0.1:2000/hystrix中加入http://127.0.0.1:8989/hystrix.stream
      * @param args
      */
 

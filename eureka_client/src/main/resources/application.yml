@@ -11,6 +11,9 @@ eureka:
       registry-fetch-interval-seconds: 30
     healthcheck:
       enable: true #健康检查，配置后会将健康状态传到eureka server中
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port} #默认是 ${spring.application.name}:${server.port}
+
 spring:
   application:
     name: hello-service

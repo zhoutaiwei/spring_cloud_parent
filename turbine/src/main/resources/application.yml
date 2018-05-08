@@ -15,5 +15,6 @@ eureka:
 turbine:
   app-config: service-ribbon,service-ribbon-007
   cluster-name-expression: "'default'"
+  combine-host-port: true
   #示同一主机上的服务通过host和port的组合来进行区分，默认情况下是使用host来区分，这样会使本地调试有问题
 
